@@ -15,7 +15,6 @@ public class VehicleDao {
     }
 
     public void addVehicle(Vehicle vehicle) {
-        // TODO: Implement the logic to add a vehicle
        try(Connection connection = dataSource.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(
                    "INSERT INTO (VIN, make, model, year, color, vehicleType, odometer, price: VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
@@ -37,11 +36,9 @@ public class VehicleDao {
     }
 
     public void removeVehicle(String VIN) {
-        // TODO: Implement the logic to remove a vehicle
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "DELETE FROM vehicles WHERE VIN = 8K1FJ1K9A1W123456")) {
-
             preparedStatement.executeUpdate();
         }
         catch (SQLException ex) {
@@ -50,11 +47,15 @@ public class VehicleDao {
         }
     }
 
-    public List<Vehicle> searchByPriceRange(double minPrice, double maxPrice) {
-        // TODO: Implement the logic to search vehicles by price range
-        List<Vehicle> vehicleList = new ArrayList<>();
-        return new ArrayList<>();
-    }
+//    public List<Vehicle> searchByPriceRange(double minPrice, double maxPrice) {
+//        // TODO: Implement the logic to search vehicles by price range
+//        List<Vehicle> vehicleList = new ArrayList<>();
+////        try(Connection connection = dataSource.getConnection();
+////            CallableStatement callStatement = connection.prepareCall("{CALL ")
+////
+////
+////        return new ArrayList<>();
+//    }
 
     public List<Vehicle> searchByMakeModel(String make, String model) {
         // TODO: Implement the logic to search vehicles by make and model
@@ -68,6 +69,8 @@ public class VehicleDao {
 
     public List<Vehicle> searchByColor(String color) {
         // TODO: Implement the logic to search vehicles by color
+        List<Vehicle> colorCarList = new ArrayList<>();
+
         return new ArrayList<>();
     }
 
