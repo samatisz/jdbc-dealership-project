@@ -104,8 +104,6 @@ public class VehicleDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-
         return colorCarList;
     }
 
@@ -126,8 +124,16 @@ public class VehicleDao {
     public List<Vehicle> searchByType(String type) {
         // TODO: Implement the logic to search vehicles by type
         List<Vehicle> typeList = new ArrayList<>();
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement prepState = connection.prepareCall(
+                    "SELECT * FROM vehicles WHERE type == ?")) {
+            prepState.executeUpdate();
 
-        return new ArrayList<>();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return typeList;
     }
 
     private Vehicle createVehicleFromResultSet(ResultSet resultSet) throws SQLException {
