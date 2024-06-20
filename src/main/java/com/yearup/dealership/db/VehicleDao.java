@@ -16,14 +16,43 @@ public class VehicleDao {
 
     public void addVehicle(Vehicle vehicle) {
         // TODO: Implement the logic to add a vehicle
+       try(Connection connection = dataSource.getConnection();
+           PreparedStatement preparedStatement = connection.prepareStatement(
+                   "INSERT INTO (VIN, make, model, year, color, vehicleType, odometer, price: VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
+           preparedStatement.setString(1, "12347h7J2");
+           preparedStatement.setString(2, "Ford");
+           preparedStatement.setString(3, "Cadillac");
+           preparedStatement.setInt(4, 2015);
+           preparedStatement.setString(5, "blue");
+           preparedStatement.setString(6, "car");
+           preparedStatement.setInt(7, 3000);
+           preparedStatement.setDouble(8,1500.00);
+
+           preparedStatement.executeUpdate();
+       }
+       catch (SQLException ex) {
+           ex.printStackTrace();
+
+       }
     }
 
     public void removeVehicle(String VIN) {
         // TODO: Implement the logic to remove a vehicle
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "DELETE FROM vehicles WHERE VIN = 8K1FJ1K9A1W123456")) {
+
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
     }
 
     public List<Vehicle> searchByPriceRange(double minPrice, double maxPrice) {
         // TODO: Implement the logic to search vehicles by price range
+        List<Vehicle> vehicleList = new ArrayList<>();
         return new ArrayList<>();
     }
 
