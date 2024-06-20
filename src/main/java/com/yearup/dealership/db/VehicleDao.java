@@ -48,7 +48,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByPriceRange(double minPrice, double maxPrice) {
-      // TODO: Implement the logic to search vehicles by price range
        List<Vehicle> vehicleList = new ArrayList<>();
 
        try(Connection connection = dataSource.getConnection();
@@ -63,7 +62,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByMakeModel(String make, String model) {
-        // TODO: Implement the logic to search vehicles by make and model
         List<Vehicle> vehicleMakeList = new ArrayList<>();
         try(Connection connection = dataSource.getConnection();
             PreparedStatement prepState = connection.prepareCall(
@@ -79,7 +77,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByYearRange(int minYear, int maxYear) {
-        // TODO: Implement the logic to search vehicles by year range
         List<Vehicle> vehicleYearList = new ArrayList<>();
         try(Connection connection = dataSource.getConnection();
             PreparedStatement prepState = connection.prepareCall(
@@ -93,8 +90,8 @@ public class VehicleDao {
         return vehicleYearList;
     }
 
+
     public List<Vehicle> searchByColor(String color) {
-        // TODO: Implement the logic to search vehicles by color
         List<Vehicle> colorCarList = new ArrayList<>();
         try(Connection connection = dataSource.getConnection();
             PreparedStatement prepState = connection.prepareCall(
@@ -108,7 +105,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByMileageRange(int minMileage, int maxMileage) {
-        // TODO: Implement the logic to search vehicles by mileage range
         List<Vehicle> mileageList = new ArrayList<>();
         try(Connection connection = dataSource.getConnection();
             PreparedStatement prepState = connection.prepareCall(
@@ -122,7 +118,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByType(String type) {
-        // TODO: Implement the logic to search vehicles by type
         List<Vehicle> typeList = new ArrayList<>();
         try(Connection connection = dataSource.getConnection();
             PreparedStatement prepState = connection.prepareCall(
